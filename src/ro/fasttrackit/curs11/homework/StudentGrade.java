@@ -5,14 +5,10 @@ public class StudentGrade {
     private String discipline;
     private int grade;
 
-    public StudentGrade(String name, String discipline, int grade){
+    public StudentGrade(String name, String discipline, int grade) {
         this.name = name;
         this.discipline = discipline;
         this.grade = grade;
-
-    }
-
-    public StudentGrade() {
 
     }
 

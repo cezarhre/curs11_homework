@@ -22,7 +22,7 @@ public class StudentMain {
         System.out.println(classroom.getAverageGrades());
         System.out.println(classroom.getAverageGrade("Mathematics"));
 
-        RaportGenerator raportGenerator = new RaportGenerator();
+        RaportGenerator raportGenerator = new RaportGenerator(studentGrades);
         raportGenerator.raportGenerator();
 
 

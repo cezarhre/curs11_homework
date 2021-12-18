@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Classroom {
 
-    private List<StudentGrade> studentGrades;
+    private final List<StudentGrade> studentGrades;
 
     public Classroom(List<StudentGrade> studentGrades) {
         this.studentGrades = studentGrades;
@@ -45,21 +45,19 @@ public class Classroom {
     }
 
     public StudentGrade getMaxAllGrade() {
-        StudentGrade maxAllGrade = new StudentGrade();
-        int max = 0;
+        StudentGrade maxAllGrade = studentGrades.get(0);
         for (StudentGrade stud : studentGrades) {
-                if (stud.getGrade() > max) {
-                    max = stud.getGrade();
-                    maxAllGrade = stud;
-                }
+            if (stud.getGrade() > maxAllGrade.getGrade()) {
+                maxAllGrade = stud;
             }
-            return maxAllGrade;
         }
+        return maxAllGrade;
+    }
 
-    public StudentGrade getMinGrade(){
+    public StudentGrade getMinGrade() {
         StudentGrade minGrade = studentGrades.get(0);
-        for(StudentGrade stud : studentGrades){
-            if(stud.getGrade() < minGrade.getGrade()){
+        for (StudentGrade stud : studentGrades) {
+            if (minGrade.getGrade() < stud.getGrade()) {
                 minGrade = stud;
             }
         }
@@ -78,15 +76,15 @@ public class Classroom {
         return total / count;
     }
 
-    public Integer getAverageGrades(){
+    public Integer getAverageGrades() {
         int count = 0;
         int total = 0;
         for (StudentGrade stud : studentGrades) {
-                total += stud.getGrade();
-                count++;
-            }
-        return total / count;
+            total += stud.getGrade();
+            count++;
         }
+        return total / count;
+    }
 
     public StudentGrade getWorstGrade(String discipline) {
         StudentGrade worstGrade = studentGrades.get(0);

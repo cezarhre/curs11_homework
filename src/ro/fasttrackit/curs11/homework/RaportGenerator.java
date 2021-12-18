@@ -3,20 +3,18 @@ package ro.fasttrackit.curs11.homework;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RaportGenerator {
 
-    private List<StudentGrade> studentGrade;
-    private Classroom classroom;
+    private final List<StudentGrade> studentGrades;
 
-    public RaportGenerator() {
-        studentGrade = new ArrayList<>();
-        classroom = new Classroom(studentGrade);
+    public RaportGenerator(List<StudentGrade> studentGrades) {
+        this.studentGrades = studentGrades;
     }
 
     public void raportGenerator() throws IOException {
+        Classroom classroom = new Classroom(this.studentGrades);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("files/grade-reports.out"))) {
             StudentGrade maxNotaStudent = classroom.getMaxAllGrade();
             StudentGrade minNotaStudent = classroom.getMinGrade();
