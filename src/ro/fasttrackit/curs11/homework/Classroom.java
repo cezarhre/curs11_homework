@@ -57,7 +57,7 @@ public class Classroom {
     public StudentGrade getMinGrade() {
         StudentGrade minGrade = studentGrades.get(0);
         for (StudentGrade stud : studentGrades) {
-            if (minGrade.getGrade() < stud.getGrade()) {
+            if (minGrade.getGrade() > stud.getGrade()) {
                 minGrade = stud;
             }
         }
