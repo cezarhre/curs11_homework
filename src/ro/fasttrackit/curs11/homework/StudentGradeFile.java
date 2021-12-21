@@ -1,24 +1,21 @@
 package ro.fasttrackit.curs11.homework;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class StudentGradeFile{
 
-    private List<StudentGrade> studentList;
+    protected final List<StudentGrade> studentList;
 
     public StudentGradeFile(){
         studentList = new ArrayList<>();
     }
 
     public List<StudentGrade> getStudentList()throws Exception{
-        List<StudentGrade> studentList = readStudentList("files/grades.txt");
-        return studentList;
+        return readStudentList("files/grades.txt");
     }
 
     public List<StudentGrade> readStudentList(String path) throws Exception{
